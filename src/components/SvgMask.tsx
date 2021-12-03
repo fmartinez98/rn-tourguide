@@ -26,8 +26,8 @@ interface Props {
   maskOffset?: number
   borderRadius?: number
   currentStep?: IStep
-  easing?(value: number): number
-  stop?(): void
+  easing: (value: number) => number
+  stop: () => void
 }
 
 interface State {
@@ -47,6 +47,7 @@ export class SvgMask extends Component<Props, State> {
     size: { x: 0, y: 0 },
     position: { x: 0, y: 0 },
     maskOffset: 0,
+    isHorizontal: false,
   }
 
   listenerID: string
@@ -59,10 +60,7 @@ export class SvgMask extends Component<Props, State> {
   constructor(props: Props) {
     super(props)
 
-    this.windowDimensions = Platform.select({
-      android: Dimensions.get('screen'),
-      default: Dimensions.get('window'),
-    })
+    this.windowDimensions = Dimensions.get('window')
 
     this.firstPath = `M0,0H${this.windowDimensions.width}V${
       this.windowDimensions.height
