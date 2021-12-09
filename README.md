@@ -113,7 +113,7 @@ const AppContent = () => {
       */}
       <TourGuideZone
         zone={2}
-        text={'A react-native-copilot remastered! 🎉'}
+        payload={'A react-native-copilot remastered! 🎉'}
         borderRadius={16}
       >
         <Text style={styles.title}>
@@ -139,7 +139,7 @@ const AppContent = () => {
         <TourGuideZone
           zone={1}
           shape='circle'
-          text={'With animated SVG morphing with awesome flubber 🍮💯'}
+          payload={'With animated SVG morphing with awesome flubber 🍮💯'}
         >
           <Image source={{ uri }} style={styles.profilePhoto} />
         </TourGuideZone>
@@ -178,7 +178,7 @@ interface TourGuideZoneProps {
   zone: number // A positive number indicating the order of the step in the entire walkthrough.
   tourKey?: string // A string indicating which tour the zone belongs to
   isTourGuide?: boolean // return children without wrapping id false
-  text?: string // text in tooltip
+  payload?: payload?: Record<string, any>; // payload in tooltip
   shape?: Shape // which shape
   maskOffset?: number // offset around zone
   borderRadius?: number // round corner when rectangle
@@ -264,7 +264,7 @@ return (
   <TourGuideZone
     tourKey={tourKey} // <-- Pass in the tourKey
     zone={2}
-    text='Check on your results'
+    payload='Check on your results'
   >
     {/** Children */}
   </TourGuideZone>
@@ -281,7 +281,7 @@ const { canStart, start, stop, TourGuideZone } =
 return (
   <TourGuideZone // <-- No need to pass in the tourKey
     zone={2}
-    text='Check on your results'
+    payload='Check on your results'
   >
     {/** Children */}
   </TourGuideZone>

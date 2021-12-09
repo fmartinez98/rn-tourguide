@@ -6,7 +6,7 @@ declare var __TEST__: boolean
 
 interface Props {
   name: string
-  text: string
+  payload: Record<string, any> | string;
   order: number
   tourKey: string
   active?: boolean

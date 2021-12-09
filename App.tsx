@@ -52,7 +52,7 @@ const AppContent = () => {
       <TourGuideZone
         keepTooltipPosition
         zone={2}
-        text={'A react-native-copilot remastered! 🎉'}
+        payload={'A react-native-copilot remastered! 🎉'}
         borderRadius={16}
       >
         <Text style={styles.title}>
@@ -78,7 +78,7 @@ const AppContent = () => {
         <TourGuideZone
           zone={7}
           shape='circle'
-          text={'With animated SVG morphing with awesome flubber 🍮💯'}
+          payload={'With animated SVG morphing with awesome flubber 🍮💯'}
         >
           <Image source={{ uri }} style={styles.profilePhoto} />
         </TourGuideZone>
