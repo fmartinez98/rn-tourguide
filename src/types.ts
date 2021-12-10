@@ -9,7 +9,7 @@ export interface IStep {
   order: number
   visible?: boolean
   target: any
-  text: string
+  payload: Record<string, any> | string;
   wrapper: any
   shape?: Shape
   maskOffset?: number

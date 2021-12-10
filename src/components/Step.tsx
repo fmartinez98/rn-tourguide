@@ -6,7 +6,7 @@ import { TourGuideContext } from './TourGuideContext'
 interface Props {
   name: string
   order: number
-  text: string
+  payload: Record<string, any> | string;
   tourKey: string
   shape?: Shape
   active?: boolean
