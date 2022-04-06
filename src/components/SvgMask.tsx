@@ -6,7 +6,6 @@ import {
   LayoutChangeEvent,
   Platform,
   StyleProp,
-  View,
   ViewStyle,
   TouchableWithoutFeedback,
   ScaledSize,
@@ -183,20 +182,21 @@ export class SvgMask extends Component<Props, State> {
     if (!this.state.canvasSize) {
       return null
     }
-    const { dismissOnPress, stop } = this.props
-    const Wrapper: any = dismissOnPress ? TouchableWithoutFeedback : View
+
+    // const { dismissOnPress, stop } = this.props
+    // const Wrapper: any = dismissOnPress ? TouchableWithoutFeedback : View
 
     return (
-      <Wrapper
+      <TouchableWithoutFeedback
         style={this.props.style}
         onLayout={this.handleLayout}
-        pointerEvents='none'
-        onPress={dismissOnPress ? stop : undefined}
+        onPress={this.props.stop}
       >
         <Svg
           pointerEvents='none'
           width={this.state.canvasSize.x}
           height={this.state.canvasSize.y}
+          onPress={this.props.stop}
         >
           <AnimatedSvgPath
             ref={this.mask}
@@ -207,7 +207,7 @@ export class SvgMask extends Component<Props, State> {
             opacity={this.state.opacity as any}
           />
         </Svg>
-      </Wrapper>
+      </TouchableWithoutFeedback>
     )
   }
 }
